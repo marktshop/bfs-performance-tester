@@ -41,3 +41,36 @@ model CustomFieldDefinition {
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt
 }
+
+model PerformanceTest {
+  id                    String                    @id @default(uuid())
+  shop                  String
+  appId                 String?                   // The app being tested
+  appName               String?                   // Name of the app being tested
+  testStoreUrl          String                    // URL of the test store
+  status                String                    // "running", "completed", "failed"
+  baselineScore         Float?                    // Average baseline score
+  postInstallScore      Float?                    // Average post-install score
+  scoreDelta            Float?                    // Difference between scores
+  passStatus            String?                   // "pass", "fail", null if not completed
+  createdAt             DateTime                  @default(now())
+  updatedAt             DateTime                  @updatedAt
+  results               PerformanceTestResult[]
+}
+
+model PerformanceTestResult {
+  id                    String          @id @default(uuid())
+  performanceTestId     String
+  testType              String          // "baseline" or "post_install"
+  runNumber             Int             // 1, 2, or 3 (for averaging)
+  lighthouseScore       Float           // The actual Lighthouse performance score
+  lighthouseReport      String?         // JSON string of full Lighthouse report
+  testUrl               String          // URL that was tested
+  userAgent             String?         // User agent used for testing
+  testDuration          Int?            // Time taken for test in milliseconds
+  createdAt             DateTime        @default(now())
+  
+  performanceTest       PerformanceTest @relation(fields: [performanceTestId], references: [id], onDelete: Cascade)
+  
+  @@index([performanceTestId, testType])
+}

@@ -24,6 +24,7 @@ export default function App() {
         </Link>
         <Link to="/app/products">Products</Link>
         <Link to="/app/fields">Custom Fields</Link>
+        <Link to="/app/performance">Performance Testing</Link>
         <Link to="/app/additional">Additional page</Link>
       </NavMenu>
       <Outlet />
