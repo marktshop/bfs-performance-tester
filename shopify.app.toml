@@ -3,7 +3,7 @@
 client_id = "fd8e29d89c0be13a3f9c6e136af79385"
 name = "producteditor"
 handle = "producteditor-6"
-application_url = "https://isbn-tabs-halo-performing.trycloudflare.com"
+application_url = "https://freeze-stadium-deferred-homeland.trycloudflare.com"
 embedded = true
 
 [build]
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://isbn-tabs-halo-performing.trycloudflare.com/auth/callback",
-  "https://isbn-tabs-halo-performing.trycloudflare.com/auth/shopify/callback",
-  "https://isbn-tabs-halo-performing.trycloudflare.com/api/auth/callback"
+  "https://freeze-stadium-deferred-homeland.trycloudflare.com/auth/callback",
+  "https://freeze-stadium-deferred-homeland.trycloudflare.com/auth/shopify/callback",
+  "https://freeze-stadium-deferred-homeland.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]

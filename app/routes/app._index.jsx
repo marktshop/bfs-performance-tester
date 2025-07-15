@@ -106,11 +106,60 @@ export default function Index() {
 
   return (
     <Page>
-      <TitleBar title="Remix app template">
+      <TitleBar title="Customize your product">
         <button variant="primary" onClick={generateProduct}>
           Generate a product
         </button>
       </TitleBar>
+      
+      {/* Hero Banner Section */}
+      <Box 
+        style={{
+          backgroundImage: "url('/hero-banner.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          minHeight: "400px",
+          borderRadius: "8px",
+          position: "relative",
+          marginBottom: "20px",
+          overflow: "hidden"
+        }}
+      >
+        <Box
+          style={{
+            background: "linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.1) 100%)",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center"
+          }}
+        >
+          <Box style={{ textAlign: "center", color: "white", padding: "40px" }}>
+            <Text as="h1" variant="heading2xl" style={{ color: "white", marginBottom: "16px", textShadow: "2px 2px 4px rgba(0,0,0,0.8)" }}>
+              Transform Your Products
+            </Text>
+            <Text as="p" variant="bodyLg" style={{ color: "white", marginBottom: "24px", textShadow: "1px 1px 2px rgba(0,0,0,0.8)" }}>
+              Create custom fields and enhance your Shopify store with powerful product customization tools
+            </Text>
+            <InlineStack gap="300" align="center">
+              <Button size="large" variant="primary" onClick={generateProduct} loading={isLoading}>
+                Get Started
+              </Button>
+              <Link url="/app/flexipick">
+                <Button size="large" variant="secondary">
+                  Explore FlexiPick
+                </Button>
+              </Link>
+            </InlineStack>
+          </Box>
+        </Box>
+      </Box>
+      
       <BlockStack gap="500">
         <Layout>
           <Layout.Section>
@@ -121,45 +170,7 @@ export default function Index() {
                     Congrats on creating a new Shopify app 🎉
                   </Text>
                   <Text variant="bodyMd" as="p">
-                    This embedded app template uses{" "}
-                    <Link
-                      url="https://shopify.dev/docs/apps/tools/app-bridge"
-                      target="_blank"
-                      removeUnderline
-                    >
-                      App Bridge
-                    </Link>{" "}
-                    interface examples like an{" "}
-                    <Link url="/app/additional" removeUnderline>
-                      additional page in the app nav
-                    </Link>
-                    , as well as an{" "}
-                    <Link
-                      url="https://shopify.dev/docs/api/admin-graphql"
-                      target="_blank"
-                      removeUnderline
-                    >
-                      Admin GraphQL
-                    </Link>{" "}
-                    mutation demo, to provide a starting point for app
-                    development.
-                  </Text>
-                </BlockStack>
-                <BlockStack gap="200">
-                  <Text as="h3" variant="headingMd">
-                    Get started with products
-                  </Text>
-                  <Text as="p" variant="bodyMd">
-                    Generate a product with GraphQL and get the JSON output for
-                    that product. Learn more about the{" "}
-                    <Link
-                      url="https://shopify.dev/docs/api/admin-graphql/latest/mutations/productCreate"
-                      target="_blank"
-                      removeUnderline
-                    >
-                      productCreate
-                    </Link>{" "}
-                    mutation in our API references.
+                    This app allows you to customize your product with custom fields. Modify your shipping options, product selection, fulfillment options, and more!
                   </Text>
                 </BlockStack>
                 <InlineStack gap="300">
@@ -175,7 +186,7 @@ export default function Index() {
                       View product
                     </Button>
                   )}
-                  <Link url="/app/fields">
+                  <Link url="/app/flexipick">
                     <Button>Manage Custom Fields</Button>
                   </Link>
                 </InlineStack>

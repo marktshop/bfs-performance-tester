@@ -52,9 +52,16 @@ export default function Products() {
                   <IndexTable.Cell>{product.title}</IndexTable.Cell>
                   <IndexTable.Cell>
                     <Button onClick={() => {
-                      const url = `/app/products/${product.id}/edit-fields`;
+                      const url = `/app/products/${product.id}`;
+                      console.log("Product:", product);
+                      console.log("Product ID:", product.id);
                       console.log("Navigating to:", url);
-                      navigate(url);
+                      
+                      try {
+                        navigate(url);
+                      } catch (error) {
+                        console.error("Navigation error:", error);
+                      }
                     }}>
                       Edit Fields
                     </Button>

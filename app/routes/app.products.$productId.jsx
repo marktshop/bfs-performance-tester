@@ -6,9 +6,10 @@ import { useState } from 'react';
 
 // Loader to fetch product metafields
 export async function loader({ params, request }) {
-  //console.log("loader");
+  console.log("Edit fields loader called with productId:", params.productId);
   const { session } = await authenticate.admin(request);
   const productId = params.productId;
+  
   // Fetch product metafields
   const data = await shopifyAdminRequest(
     session,
